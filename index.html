@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>React Native Introduction</title>
+
+		<meta name="description" content="An introduction to React Native">
+		<meta name="author" content="Jan Monschke">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/monokai-sublime.css">
+
+		<style media="screen">
+			.reveal pre {
+				box-shadow: initial;
+				display: flex;
+				justify-content: center;
+			}
+
+			.reveal pre code {
+				padding: 20px;
+				box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.3);
+			}
+		</style>
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<h1>An Introduction to React Native</h1>
+					<p>
+						<small><a href="//janmonschke.com">Jan Monschke</a> / <a href="//twitter.com/thedeftone">@thedeftone</a> / <a href="//github.com/janmonschke">github.com/janmonschke</a></small>
+					</p>
+					<p><small>Frontend Engineer at <a href="https://soundcloud.com/jobs" style="color: #f50;">SoundCloud</a></small></p>
+				</section>
+
+				<section>
+					<h2>Who here has built a native mobile app before?</h2>
+				</section>
+
+				<section>
+					<img src="images/compiling.png" style="width: 650px;" />
+				</section>
+
+				<section>
+					<h2>Dev workflow: web > mobile</h2>
+				</section>
+
+				<section>
+					<ul>
+						<li>Just refresh the page</li>
+						<li class="fragment">Auto-Reload</li>
+						<li class="fragment">Hot Module Reload</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Hybrid mobile apps</h2>
+				</section>
+
+				<section>
+					<h2 style="text-decoration: line-through;">Hybrid mobile apps</h2>
+				</section>
+
+				<section>
+					<ul>
+						<li>Web + Mobile not integrated</li>
+						<li class="fragment">Look &amp; Feel</li>
+						<li class="fragment">No real cross-mobile solution</li>
+						<li class="fragment">Performance</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>React Native</h2>
+					<p class="fragment"><span>develop web-ish</span><span class="fragment">, run natively</span></p>
+				</section>
+
+				<section>
+<pre><code>import React from 'react';
+
+class Slide extends React.Component {
+  render() {
+    const { title, body } = this.props;
+
+    return (
+      &lt;div&gt;
+        &lt;h2&gt;{title}&lt;/h2&gt;
+        &lt;p&gt;{body}&lt;/p&gt;
+      &lt;/div&gt;
+    );
+  }
+}
+</code></pre>
+  			</section>
+
+				<section>
+<pre><code>import React, { View, Text } from 'react-native';
+
+class Slide extends React.Component {
+  render() {
+    const { title, body } = this.props;
+
+    return (
+      &lt;View&gt;
+        &lt;Text&gt;{title}&lt;/Text&gt;
+        &lt;Text&gt;{body}&lt;/Text&gt;
+      &lt;/View&gt;
+    );
+  }
+}
+</code></pre>
+  			</section>
+<section>
+<pre><code>.slide {
+  display: flex;
+  align-items: 'center';
+  justify-content: 'center';
+}
+</code></pre>
+<pre>
+	<code>&lt;div className=&quot;slide&quot;&gt;(...)&lt;/div&gt;</code>
+</pre>
+</section>
+<section>
+<pre><code>import React, { View, StyleSheet } from 'react-native';
+
+const styles = StyleSheet.create({
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center'
+});
+
+&lt;View style={styles.slide}&gt;(...)&lt;/View&gt;
+</code></pre>
+</section>
+<section>
+	<p>
+		TODO: build minimalistic app to show on both mobile simulators during talk
+	</p>
+</section>
+				<section>
+					<ul>
+						<li>React can render arbitrary kind of view systems</li>
+						<li>RN provides JS wrappers for native views</li>
+						<li>Writing code just like any other React App</li>
+						<li>Your views work cross-platform!</li>
+					</ul>
+				</section>
+
+				<section>
+					<ul>
+						<li>Cross-Platform, but also: Respecting platform specifics</li>
+						<li>e.g. Navigation-Styles, Material Design</li>
+					</ul>
+				</section>
+<section data-background-video="media/pomodoro-android-480.webm" data-background-video-loop ></section>
+				<section>
+				<pre><code>
+import SlidesMenu from './slides-menu';
+
+Packager => Platform => slides-menu.ios.js,
+                        slides-menu.android.js
+				</code></pre>
+				</section>
+
+				<section>
+					<h2>How does it do that?</h2>
+
+					<ul>
+						<li>JS code execution in background thread</li>
+						<li>Render-Instructions are sent to the UI thread</li>
+						<li>=> Native (incremental) Rendering</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Benefit from mobile- AND web-community</h2>
+
+					<ul>
+						<li>Provide native interfaces to JS code</li>
+						<li>Profit from native libraries</li>
+						<li>Profit from all NPM libraries (full codesharing)</li>
+					</ul>
+				</section>
+
+				<section>
+					<ul>
+						<li>XCode needed to build the app</li>
+						<li>Still dependent on App Stores for distribution</li>
+						<li>Code-signing, distrubution profiles</li>
+					</ul>
+				</section>
+
+				<section>
+					<p>
+						What about fast deploys like on web?
+					</p>
+					<p>
+						(bug fixes, new features without app store approval...)
+					</p>
+				</section>
+
+				<section>
+					<h3>OTA updates!</h3>
+
+					<ul>
+						<li>No App Store approval process</li>
+						<li>Web-like deployment</li>
+					</ul>
+				</section>
+
+				<section>
+					<h3>Maturity</h3>
+
+					<ul>
+						<li>"Just over one year old"</li>
+						<li>Battle-tested in FB apps (Ads, Groups)</li>
+						<li>Used by many companies already (Runtastic, SoundCloud...)</li>
+					</ul>
+				</section>
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'fade', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+		<script type="text/javascript">
+			var _gaq = _gaq || [];
+			_gaq.push(['_setAccount', 'UA-19046336-4']);
+			_gaq.push(['_trackPageview']);
+
+			(function() {
+			  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+			})();
+		</script>
+
+	</body>
+</html>
