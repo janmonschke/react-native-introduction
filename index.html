@@ -163,22 +163,43 @@ const styles = StyleSheet.create({
 </section>
 <section>
 	<p>
-		TODO: build minimalistic app to show on both mobile simulators during talk
+		TODO: show screenshot of simple app with simulator frame
 	</p>
 </section>
+
+	<section>
+		<h2>How does it work?</h2>
+	</section>
 				<section>
 					<ul>
-						<li>React can render arbitrary kind of view systems</li>
-						<li>RN provides JS wrappers for native views</li>
-						<li>Writing code just like any other React App</li>
-						<li>Your views work cross-platform!</li>
+						<li>Write code like in any other React App</li>
+						<li class="fragment">React can render arbitrary kind of view systems</li>
+						<li class="fragment">React Native has JS wrappers for native views</li>
+					</ul>
+					<p class="fragment"><small>View, Image, Navigator, List, Loading Indicator, Touchable...</small></p>
+				</section>
+
+				<section>
+					<p>
+						TODO: find an image to visualise this
+					</p>
+					<ul>
+						<li>JS code executed in background thread</li>
+						<li class="fragment">Render instructions are sent to the UI thread</li>
+						<li class="fragment">Native rendering (incremental)</li>
 					</ul>
 				</section>
 
 				<section>
+					<h2>Cross-Platform</h2>
+				</section>
+
+				<section>
 					<ul>
-						<li>Cross-Platform, but also: Respecting platform specifics</li>
-						<li>e.g. Navigation-Styles, Material Design</li>
+						<li>Views render on both platforms</li>
+						<li class="fragment">Respecting platform environment</li>
+						<li class="fragment">e.g. navigation style, material design</li>
+						<li class="fragment">Simple way to write platform specific code</li>
 					</ul>
 				</section>
 <section data-background-video="media/pomodoro-android-480.webm" data-background-video-loop ></section>
@@ -192,49 +213,61 @@ Packager => Platform => slides-menu.ios.js,
 				</section>
 
 				<section>
-					<h2>How does it do that?</h2>
-
-					<ul>
-						<li>JS code execution in background thread</li>
-						<li>Render-Instructions are sent to the UI thread</li>
-						<li>=> Native (incremental) Rendering</li>
-					</ul>
+					<h2>Demo time</h2>
+					<p>
+						TODO: build minimalistic app to show on both mobile simulators during talk
+					</p>
 				</section>
 
 				<section>
 					<h2>Benefit from mobile- AND web-community</h2>
+				</section>
 
+				<section>
 					<ul>
 						<li>Provide native interfaces to JS code</li>
-						<li>Profit from native libraries</li>
-						<li>Profit from all NPM libraries (full codesharing)</li>
+						<li class="fragment">Use existing native libraries</li>
+						<li class="fragment">Profit from NPM</li>
+						<li class="fragment">Share code with your web projects</li>
 					</ul>
+				</section>
+
+				<section>
+					<h2>Downsides</h2>
 				</section>
 
 				<section>
 					<ul>
-						<li>XCode needed to build the app</li>
-						<li>Still dependent on App Stores for distribution</li>
-						<li>Code-signing, distrubution profiles</li>
+						<li>XCode needed to build iOS apps</li>
+						<li class="fragment">Still dependend on App Stores for distribution</li>
+						<li class="fragment">Code-signing, distrubution profiles...</li>
 					</ul>
 				</section>
 
 				<section>
-					<p>
+					<h2>
 						What about fast deploys like on web?
-					</p>
-					<p>
+					</h2>
+					<p class="fragment">
 						(bug fixes, new features without app store approval...)
 					</p>
 				</section>
 
 				<section>
-					<h3>OTA updates!</h3>
+					<h2>OTA updates!</h2>
+				</section>
 
+				<section>
 					<ul>
 						<li>No App Store approval process</li>
 						<li>Web-like deployment</li>
 					</ul>
+				</section>
+
+				<section>
+					<p>
+						TODO: show codepush architecture
+					</p>
 				</section>
 
 				<section>
@@ -246,6 +279,11 @@ Packager => Platform => slides-menu.ios.js,
 						<li>Used by many companies already (Runtastic, SoundCloud...)</li>
 					</ul>
 				</section>
+
+				<section>
+					<h2>Thanks</h2>
+				</section>
+
 			</div>
 
 		</div>
