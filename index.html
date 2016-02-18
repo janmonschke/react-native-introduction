@@ -161,37 +161,34 @@ const styles = StyleSheet.create({
 &lt;View style={styles.slide}&gt;(...)&lt;/View&gt;
 </code></pre>
 </section>
-<section>
-	<p>
-		TODO: show screenshot of simple app with simulator frame
-	</p>
+
+<section data-background="#999">
+	<img src="images/slides-app.png" style="width: 70%; border: none; box-shadow: initial; background: none;" />
 </section>
 
 	<section>
 		<h2>How does it work?</h2>
 	</section>
-	<section data-background="#999">
-		<img src="images/rn-architecture.png" style="width: 70%; border: none; box-shadow: initial; background: none;" />
-	</section>
 				<section>
 					<ul>
 						<li>Write code like in any other React App</li>
 						<li class="fragment">React can render arbitrary kind of view systems</li>
-						<li class="fragment">React Native has JS wrappers for native views</li>
+						<li class="fragment">React Native has JS wrappers for native views and modules</li>
 					</ul>
-					<p class="fragment"><small>View, Image, Navigator, List, Loading Indicator, Touchable...</small></p>
+					<p class="fragment"><small>View, Image, Navigator, List, Loading Indicator, Intents...</small></p>
 				</section>
 
+				<section data-background="#999">
+					<img src="images/rn-architecture.png" style="width: 70%; border: none; box-shadow: initial; background: none;" />
+				</section>
+<!--
 				<section>
-					<p>
-						TODO: find an image to visualise this
-					</p>
 					<ul>
 						<li>JS code executed in background thread</li>
 						<li class="fragment">Render instructions are sent to the UI thread</li>
 						<li class="fragment">Native rendering (incremental)</li>
 					</ul>
-				</section>
+				</section> -->
 
 				<section>
 					<h2>Cross-Platform</h2>
@@ -205,8 +202,6 @@ const styles = StyleSheet.create({
 						<li class="fragment">Simple way to write platform specific code</li>
 					</ul>
 				</section>
-				<section data-background-video="media/workflow.webm" data-background-video-loop ></section>
-<section data-background-video="media/pomodoro-android-480.webm" data-background-video-loop ></section>
 				<section>
 				<pre><code>
 import SlidesMenu from './slides-menu';
@@ -216,12 +211,7 @@ Packager => Platform => slides-menu.ios.js,
 				</code></pre>
 				</section>
 
-				<section>
-					<h2>Demo time</h2>
-					<p>
-						TODO: build minimalistic app to show on both mobile simulators during talk (AS A VIDEO)
-					</p>
-				</section>
+<section data-background-video="media/workflow.webm" data-background-video-loop ></section>
 
 				<section>
 					<h2>Benefit from mobile- AND web-community</h2>
@@ -245,6 +235,7 @@ Packager => Platform => slides-menu.ios.js,
 						<li>XCode needed to build iOS apps</li>
 						<li class="fragment">Still dependend on App Stores for distribution</li>
 						<li class="fragment">Code-signing, distrubution profiles...</li>
+						<li class="fragment">React lock-in</li>
 					</ul>
 				</section>
 
@@ -261,26 +252,24 @@ Packager => Platform => slides-menu.ios.js,
 					<h2>OTA updates!</h2>
 				</section>
 
-				<section>
-					<ul>
-						<li>No App Store approval process</li>
-						<li>Web-like deployment</li>
-					</ul>
+				<section data-background="#999">
+					<img src="images/rn-filesystem.png" style="width: 70%; border: none; box-shadow: initial; background: none;" />
+				</section>
+
+				<section data-background="#999">
+					<img src="images/rn-remote-update.png" style="width: 70%; border: none; box-shadow: initial; background: none;" />
 				</section>
 
 				<section>
-					<p>
-						TODO: show codepush architecture
-					</p>
+					<h2>Is it production-ready®?</h2>
 				</section>
 
 				<section>
-					<h3>Maturity</h3>
-
 					<ul>
 						<li>"Just over one year old"</li>
-						<li>Battle-tested in FB apps (Ads, Groups)</li>
-						<li>Used by many companies already (Runtastic, SoundCloud...)</li>
+						<li class="fragment">Battle-tested in FB apps (Ads, Groups)</li>
+						<li class="fragment">Used by many companies already (Runtastic, SoundCloud...)</li>
+						<li class="fragment">Only "battle-tested" code is released</li>
 					</ul>
 				</section>
 
